@@ -10,53 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AtoutsRouteImport } from './routes/atouts'
-import { Route as PresentationRouteImport } from './routes/presentation'
+import { Route as CellarRouteImport } from './routes/cellar'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as VisionRouteImport } from './routes/vision'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AtoutsRoute = AtoutsRouteImport.update({
-  id: '/atouts',
-  path: '/atouts',
+const CellarRoute = CellarRouteImport.update({
+  id: '/cellar',
+  path: '/cellar',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PresentationRoute = PresentationRouteImport.update({
-  id: '/presentation',
-  path: '/presentation',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisionRoute = VisionRouteImport.update({
+  id: '/vision',
+  path: '/vision',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/atouts': typeof AtoutsRoute
-  '/presentation': typeof PresentationRoute
+  '/cellar': typeof CellarRoute
+  '/contact': typeof ContactRoute
+  '/solutions': typeof SolutionsRoute
+  '/support': typeof SupportRoute
+  '/vision': typeof VisionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/atouts': typeof AtoutsRoute
-  '/presentation': typeof PresentationRoute
+  '/cellar': typeof CellarRoute
+  '/contact': typeof ContactRoute
+  '/solutions': typeof SolutionsRoute
+  '/support': typeof SupportRoute
+  '/vision': typeof VisionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/atouts': typeof AtoutsRoute
-  '/presentation': typeof PresentationRoute
+  '/cellar': typeof CellarRoute
+  '/contact': typeof ContactRoute
+  '/solutions': typeof SolutionsRoute
+  '/support': typeof SupportRoute
+  '/vision': typeof VisionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atouts' | '/presentation'
+  fullPaths:
+    '/' | '/cellar' | '/contact' | '/solutions' | '/support' | '/vision'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atouts' | '/presentation'
-  id: '__root__' | '/' | '/atouts' | '/presentation'
+  to: '/' | '/cellar' | '/contact' | '/solutions' | '/support' | '/vision'
+  id:
+    | '__root__'
+    | '/'
+    | '/cellar'
+    | '/contact'
+    | '/solutions'
+    | '/support'
+    | '/vision'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AtoutsRoute: typeof AtoutsRoute
-  PresentationRoute: typeof PresentationRoute
+  CellarRoute: typeof CellarRoute
+  ContactRoute: typeof ContactRoute
+  SolutionsRoute: typeof SolutionsRoute
+  SupportRoute: typeof SupportRoute
+  VisionRoute: typeof VisionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,18 +106,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atouts': {
-      id: '/atouts'
-      path: '/atouts'
-      fullPath: '/atouts'
-      preLoaderRoute: typeof AtoutsRouteImport
+    '/cellar': {
+      id: '/cellar'
+      path: '/cellar'
+      fullPath: '/cellar'
+      preLoaderRoute: typeof CellarRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/presentation': {
-      id: '/presentation'
-      path: '/presentation'
-      fullPath: '/presentation'
-      preLoaderRoute: typeof PresentationRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vision': {
+      id: '/vision'
+      path: '/vision'
+      fullPath: '/vision'
+      preLoaderRoute: typeof VisionRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,8 +146,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AtoutsRoute: AtoutsRoute,
-  PresentationRoute: PresentationRoute,
+  CellarRoute: CellarRoute,
+  ContactRoute: ContactRoute,
+  SolutionsRoute: SolutionsRoute,
+  SupportRoute: SupportRoute,
+  VisionRoute: VisionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

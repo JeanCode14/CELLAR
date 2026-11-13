@@ -1,12 +1,16 @@
-# CELLAR — site de présentation
+# CYTOVEX — site internet
 
-Site vitrine de **CELLAR** (Cell Entry, Location and Archive Register), l'application de gestion de stock pour la cryoconservation : cellules, échantillons et réactifs en cuves d'azote liquide et congélateurs.
+Site de **CYTOVEX**, éditeur de solutions logicielles pour les sciences du vivant (*Science, engineered digitally.*),
+et de son premier logiciel **CELLAR** (Cell Entry, Location and Archive Register).
 
 ## Pages
 
-- **Accueil** — présentation générale et démo de localisation d'un cryotube
-- **Présentation** — le constat, le fonctionnement, le nom C·E·L·A·R
-- **Atouts** — points forts de l'application
+- **Accueil** — présentation de CYTOVEX et de sa gamme
+- **Nos solutions** — CELLAR, puis STOCK, EQUIP et DATA (noms de travail)
+- **CELLAR** — page produit, extraits vidéo accélérés, écran de démarrage animé
+- **Notre vision** — mission, ambition, engagements
+- **Support** — documentation, assistance, questions fréquentes
+- **Contact** — formulaire (adresse de réception à définir dans `src/data/site.ts`)
 
 ## Mise en ligne
 
@@ -23,7 +27,7 @@ npm run build   # version finale dans le dossier dist/
 
 ## Modifier le contenu
 
-- Textes des pages : `src/routes/index.tsx`, `presentation.tsx`, `atouts.tsx`
-- Applications de la suite : `src/data/apps.ts`
+- Textes des pages : `src/routes/` (un fichier par page)
+- Logiciels de la gamme : `src/data/apps.ts`
 - Couleurs et styles : `src/styles.css`
-- Images : `src/assets/`
+- Images : `src/assets/` — vidéos et écran de démarrage : `public/`

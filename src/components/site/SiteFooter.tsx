@@ -1,46 +1,57 @@
 import { Link } from "@tanstack/react-router";
+import { Logo } from "./Logo";
 import { suiteApps, statusLabel } from "@/data/apps";
 
 export function SiteFooter() {
   return (
-    <footer className="relative border-t border-border">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-night text-white/70">
+      <div className="wrap grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div>
-          <p className="font-display text-2xl font-semibold">
-            CELLAR
-          </p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Des applications pensées pour le quotidien des laboratoires de recherche.
+          <Logo tone="dark" />
+          <p className="mt-5 font-display text-lg text-white">Science, engineered digitally.</p>
+          <p className="mt-2 max-w-xs text-sm leading-relaxed">
+            Éditeur de solutions logicielles pour les sciences du vivant.
           </p>
         </div>
+
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Applications</p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <h2 className="font-sans text-sm font-semibold text-white">Solutions</h2>
+          <ul className="mt-4 space-y-2.5 text-sm">
             {suiteApps.map((app) => (
               <li key={app.id}>
-                <Link to={app.to} className="flex items-center gap-2 hover:text-primary">
-                  <img src={app.icon} alt="" className="h-5 w-5" />
-                  {app.name}
-                  <span className="text-xs text-muted-foreground">· {statusLabel[app.status]}</span>
-                </Link>
+                {app.id === "cellar" ? (
+                  <Link to="/cellar" className="hover:text-white">
+                    {app.name}
+                  </Link>
+                ) : (
+                  <span>
+                    {app.name} <span className="text-white/40">· {statusLabel[app.status].toLowerCase()}</span>
+                  </span>
+                )}
               </li>
             ))}
-            <li className="text-muted-foreground">D'autres à venir…</li>
           </ul>
         </div>
+
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Navigation</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/" className="hover:text-primary">Accueil</Link></li>
-            <li><Link to="/presentation" className="hover:text-primary">Présentation</Link></li>
-            <li><Link to="/atouts" className="hover:text-primary">Points forts & atouts</Link></li>
+          <h2 className="font-sans text-sm font-semibold text-white">Entreprise</h2>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            <li><Link to="/vision" className="hover:text-white">Notre vision</Link></li>
+            <li><Link to="/solutions" className="hover:text-white">Nos solutions</Link></li>
+            <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="font-sans text-sm font-semibold text-white">Aide</h2>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            <li><Link to="/support" className="hover:text-white">Support</Link></li>
+            <li><Link to="/support" className="hover:text-white">Questions fréquentes</Link></li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-5 py-5 font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} CELLAR — Actuellement en phase de test.
-        </p>
+      <div className="border-t border-white/10">
+        <p className="wrap py-5 text-xs text-white/50">© {new Date().getFullYear()} CYTOVEX. Tous droits réservés.</p>
       </div>
     </footer>
   );

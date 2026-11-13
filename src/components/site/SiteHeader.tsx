@@ -1,90 +1,72 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
-import cellarIconUrl from "@/assets/cellar_icon.png";
+import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Accueil" },
-  { to: "/presentation", label: "Présentation" },
-  { to: "/atouts", label: "Atouts" },
+  { to: "/solutions", label: "Nos solutions" },
+  { to: "/cellar", label: "CELLAR" },
+  { to: "/vision", label: "Notre vision" },
+  { to: "/support", label: "Support" },
 ] as const;
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const close = () => setOpen(false);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled || open ? "glass border-x-0 border-t-0" : "border-b border-transparent",
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link to="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <img
-            src={cellarIconUrl}
-            alt=""
-            className="h-9 w-9 transition-transform duration-700 group-hover:rotate-[360deg]"
-          />
-          <span className="font-display text-lg font-semibold tracking-wide">CELLAR</span>
+    <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-md">
+      <div className="wrap flex h-16 items-center justify-between gap-6">
+        <Link to="/" onClick={close} aria-label="CYTOVEX, accueil">
+          <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              activeOptions={{ exact: true }}
-              className="relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground bg-secondary" }}
+              className="rounded-md px-3.5 py-2 text-[15px] font-medium text-slate transition-colors hover:text-night"
+              activeProps={{ className: "!text-science" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <span className="flex items-center gap-2 rounded-full border border-accent/40 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-accent">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-            Phase test
-          </span>
+        <div className="hidden lg:block">
+          <Link to="/contact" className="btn-primary h-10 px-5 text-sm">
+            Nous contacter
+          </Link>
         </div>
 
         <button
           type="button"
+          className="rounded-md p-2 text-night lg:hidden"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          className="rounded-full p-2 md:hidden"
+          aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {open && (
-        <nav className="animate-in fade-in slide-in-from-top-2 flex flex-col gap-1 px-5 pb-5 md:hidden">
-          {NAV.map((item) => (
+      <nav className={cn("border-t border-line bg-white lg:hidden", !open && "hidden")} aria-label="Navigation mobile">
+        <div className="wrap flex flex-col py-3">
+          {[...NAV, { to: "/contact", label: "Contact" } as const].map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              activeOptions={{ exact: true }}
-              onClick={() => setOpen(false)}
-              className="rounded-xl px-4 py-3 text-base font-medium text-muted-foreground"
-              activeProps={{ className: "text-foreground bg-secondary" }}
+              onClick={close}
+              className="rounded-md px-2 py-3 text-base font-medium text-ink"
+              activeProps={{ className: "!text-science" }}
             >
               {item.label}
             </Link>
           ))}
-        </nav>
-      )}
+        </div>
+      </nav>
     </header>
   );
 }
