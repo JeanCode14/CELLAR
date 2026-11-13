@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookX, FlaskConical, Layers, Lightbulb, Lock, Microscope, Ruler, ShieldCheck, Sparkles } from "lucide-react";
 import { NetworkField } from "@/components/site/NetworkField";
-import symbol from "@/assets/cytovex_symbol.png";
+import symbol from "@/assets/cytovex_symbol.svg";
 import cellarIcon from "@/assets/cellar_icon.png";
 import { cn } from "@/lib/utils";
 

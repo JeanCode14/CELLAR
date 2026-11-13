@@ -1,5 +1,5 @@
-import symbolDark from "@/assets/cytovex_symbol.png";
-import symbolLight from "@/assets/cytovex_symbol_onlight.png";
+import symbolDark from "@/assets/cytovex_symbol.svg";
+import symbolLight from "@/assets/cytovex_symbol_onlight.svg";
 import { cn } from "@/lib/utils";
 
 /** Symbole + nom CYTOVEX. `tone="dark"` pour un fond bleu nuit. */

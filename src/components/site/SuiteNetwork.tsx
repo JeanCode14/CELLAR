@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import symbol from "@/assets/cytovex_symbol.png";
+import symbol from "@/assets/cytovex_symbol.svg";
 import { suiteApps, statusLabel } from "@/data/apps";
 
 /*
