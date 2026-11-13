@@ -189,7 +189,7 @@ function Cellar() {
       <section className="wrap py-20 md:py-24">
         <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">Fini la chasse au tube à −196 °C.</h2>
         <p className="lead mt-4 max-w-2xl">
-          Moins de temps porte ouverte, moins de risques pour vos échantillons. Essayez : cliquez sur un tube.
+          Moins de temps porte ouverte, moins de risques pour vos échantillons. Voici une boîte de cuve d'azote telle qu'elle apparaît dans CELLAR, en mode sombre : cliquez sur une ampoule.
         </p>
         <div data-reveal className="mt-12">
           <CryoBox />
