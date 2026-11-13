@@ -1,19 +1,10 @@
 import { Snowflake } from "lucide-react";
+import { useT } from "@/i18n";
 
-const ITEMS = [
-  "Lignées cellulaires",
-  "Cuves d'azote −196 °C",
-  "Congélateurs −80 °C",
-  "Échantillons biologiques",
-  "Réactifs",
-  "Stocks et consommables",
-  "Équipements",
-  "Données scientifiques",
-  "Traçabilité",
-];
 
 /** Bande défilante des domaines couverts par la gamme CYTOVEX. */
 export function Marquee() {
+  const ITEMS = useT().marquee;
   return (
     <div className="mask-edges overflow-hidden border-y border-line bg-white py-4" aria-hidden="true">
       <div className="marquee flex w-max gap-10">

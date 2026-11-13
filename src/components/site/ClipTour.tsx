@@ -1,33 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n";
 
 const base = import.meta.env.BASE_URL;
 
-const CLIPS = [
-  {
-    id: "visualiser",
-    title: "Visualiser ses cuves",
-    text: "Occupation, places libres et activité récente de chaque cuve et congélateur.",
-  },
-  {
-    id: "enregistrer",
-    title: "Enregistrer une ampoule",
-    text: "Lignée, passage, date et responsable : l'ampoule prend sa place dans la boîte.",
-  },
-  {
-    id: "sortir",
-    title: "Sortir et tracer",
-    text: "Chaque sortie est datée et motivée, puis conservée dans l'historique.",
-  },
-  {
-    id: "piloter",
-    title: "Piloter le laboratoire",
-    text: "Alertes, niveau d'azote, tableau de bord et droits de chaque utilisateur.",
-  },
-] as const;
+const CLIP_IDS = ["visualiser", "enregistrer", "sortir", "piloter"] as const;
 
 /** Extraits de l'application CELLAR, lus en accéléré et enchaînés automatiquement. */
 export function ClipTour() {
+  const t = useT();
+  const CLIPS = CLIP_IDS.map((id, i) => ({ id, ...t.clips.items[i]! }));
   const [active, setActive] = useState(0);
   const [chosen, setChosen] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
@@ -44,7 +26,7 @@ export function ClipTour() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[19rem_1fr] lg:gap-10">
-      <div role="tablist" aria-label="Extraits de CELLAR" className="flex flex-col gap-1">
+      <div role="tablist" aria-label={t.clips.label} className="flex flex-col gap-1">
         {CLIPS.map((c, i) => {
           const on = i === active;
           return (
@@ -72,7 +54,7 @@ export function ClipTour() {
             </button>
           );
         })}
-        <p className="mt-3 pl-5 text-xs text-slate">Captures de l'application réelle, en accéléré.</p>
+        <p className="mt-3 pl-5 text-xs text-slate">{t.clips.note}</p>
       </div>
 
       <div id="clip-panel" role="tabpanel" aria-label={clip.title}>

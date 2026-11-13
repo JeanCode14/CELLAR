@@ -1,30 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Compass, KeyRound, MoonStar, Palette } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { suiteApps, statusLabel } from "@/data/apps";
+import { suiteApps } from "@/data/apps";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/solutions")({
-  head: () => ({
-    meta: [
-      { title: "Nos solutions — CYTOVEX" },
-      { name: "description", content: "Les logiciels CYTOVEX pour les laboratoires : CELLAR, puis STOCK, EQUIP et DATA." },
-    ],
-  }),
   component: Solutions,
 });
 
-const COMMON = [
-  { icon: Compass, title: "Une navigation commune", text: "Qui sait utiliser CELLAR retrouve ses repères dans les logiciels suivants." },
-  { icon: KeyRound, title: "Des droits cohérents", text: "Une authentification et une gestion des droits partagées quand les applications sont réunies." },
-  { icon: Palette, title: "Une couleur par logiciel", text: "Chaque logiciel a son icône et sa couleur, dans le même langage graphique." },
-  { icon: MoonStar, title: "Versions claire et sombre", text: "Chaque interface existe en mode clair et en mode nuit." },
-];
+const COMMON_ICONS = [Compass, KeyRound, Palette, MoonStar];
 
 function Solutions() {
+  const t = useT();
   return (
     <>
-      <PageHero kicker="Nos solutions" title="Un logiciel par besoin du laboratoire.">
-        CYTOVEX est la marque mère. Chaque logiciel a son nom et sa fonction, et tous partagent la même ergonomie.
+      <PageHero kicker={t.solutions.kicker} title={t.solutions.title}>
+        {t.solutions.lead}
       </PageHero>
 
       <section className="wrap py-20 md:py-24">
@@ -56,31 +47,31 @@ function Solutions() {
                           : "rounded-full bg-mist px-3 py-0.5 text-xs font-medium text-slate"
                       }
                     >
-                      {statusLabel[app.status]}
+                      {t.status[app.status]}
                     </span>
                   </div>
                   <p className="mt-1 font-medium" style={{ color: live ? "#287bc1" : app.color }}>
-                    {app.domain}
+                    {t.apps[app.id].domain}
                   </p>
-                  <p className="mt-3 max-w-2xl leading-relaxed text-slate">{app.description}</p>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-slate">{t.apps[app.id].description}</p>
                 </div>
                 {live && (
                   <Link to="/cellar" className="btn-primary glow-btn rounded-full">
-                    Découvrir CELLAR
+                    {t.solutions.discoverCellar}
                   </Link>
                 )}
               </li>
             );
           })}
         </ul>
-        <p className="mt-5 text-sm text-slate">STOCK, EQUIP et DATA sont des noms de travail, susceptibles d'évoluer.</p>
+        <p className="mt-5 text-sm text-slate">{t.solutions.workingNames}</p>
       </section>
 
       <section className="border-t border-line bg-mist py-20 md:py-24">
         <div className="wrap">
-          <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">Un socle commun à tous les logiciels.</h2>
+          <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">{t.solutions.commonTitle}</h2>
           <div data-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {COMMON.map((c) => (
+            {t.solutions.common.map((c, i) => ({ ...c, icon: COMMON_ICONS[i]! })).map((c) => (
               <div key={c.title} className="lift group rounded-2xl border border-line bg-white p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12">
                   <c.icon className="h-5 w-5" strokeWidth={1.9} />

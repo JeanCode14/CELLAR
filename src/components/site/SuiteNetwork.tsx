@@ -1,6 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import symbol from "@/assets/cytovex_symbol.svg";
-import { suiteApps, statusLabel } from "@/data/apps";
+import { suiteApps } from "@/data/apps";
+import { useT } from "@/i18n";
 
 /*
  * L'architecture CYTOVEX dessinée comme une molécule : la marque mère au centre,
@@ -16,12 +17,11 @@ const POS: Record<string, { x: number; y: number; label: "below" | "above" }> = 
 
 export function SuiteNetwork() {
   const navigate = useNavigate();
+  const t = useT();
 
   return (
     <svg viewBox="0 0 600 500" className="h-auto w-full max-w-[560px]" role="img" aria-labelledby="net-title">
-      <title id="net-title">
-        CYTOVEX au centre, relié à ses logiciels : CELLAR, puis STOCK, EQUIP et DATA en préparation.
-      </title>
+      <title id="net-title">{t.network.title}</title>
       <defs>
         <radialGradient id="net-glow">
           <stop offset="0" stopColor="#25b7a5" stopOpacity=".35" />
@@ -74,7 +74,7 @@ export function SuiteNetwork() {
             {...(active && {
               role: "link",
               tabIndex: 0,
-              "aria-label": `Découvrir ${app.name}`,
+              "aria-label": `${t.network.discover} ${app.name}`,
               onClick: () => navigate({ to: "/cellar" }),
               onKeyDown: (e: React.KeyboardEvent) => e.key === "Enter" && navigate({ to: "/cellar" }),
             })}
@@ -125,7 +125,7 @@ export function SuiteNetwork() {
               fontFamily="Inter, sans-serif"
               fontSize="13"
             >
-              {statusLabel[app.status]}
+              {t.status[app.status]}
             </text>
           </g>
         );

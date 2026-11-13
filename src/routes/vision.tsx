@@ -5,92 +5,25 @@ import { NetworkField } from "@/components/site/NetworkField";
 import symbol from "@/assets/cytovex_symbol.svg";
 import cellarIcon from "@/assets/cellar_icon.png";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/vision")({
-  head: () => ({
-    meta: [
-      { title: "Notre vision — CYTOVEX" },
-      {
-        name: "description",
-        content: "Mission, ambition et engagements de CYTOVEX, éditeur de logiciels pour les sciences du vivant.",
-      },
-    ],
-  }),
   component: Vision,
 });
 
-const VALUES = [
-  {
-    icon: Microscope,
-    name: "Rigueur scientifique",
-    short: "Partir de la paillasse.",
-    text: "Nos logiciels partent des pratiques réelles des laboratoires : leur vocabulaire, leurs équipements, leurs contraintes. Une cuve d'azote se range en racks, en boîtes et en positions, pas en lignes de tableur.",
-  },
-  {
-    icon: ShieldCheck,
-    name: "Fiabilité",
-    short: "Une donnée juste, des années plus tard.",
-    text: "Une information enregistrée doit rester exacte, datée et retrouvable. Chaque entrée, chaque sortie, chaque modification est conservée dans l'historique.",
-  },
-  {
-    icon: Ruler,
-    name: "Simplicité",
-    short: "Un outil qu'on adopte.",
-    text: "Un logiciel utile est un logiciel qu'on utilise. L'interface doit se comprendre d'elle-même, sans formation de plusieurs jours.",
-  },
-  {
-    icon: Lightbulb,
-    name: "Innovation",
-    short: "Le numérique là où il compte.",
-    text: "Nous utilisons la technologie là où elle fait gagner du temps ou de la sécurité aux équipes, sans promesses exagérées.",
-  },
-  {
-    icon: Lock,
-    name: "Sécurité",
-    short: "Des droits clairs, des données protégées.",
-    text: "Chaque utilisateur a ses droits, définis par un administrateur, et chaque action est tracée dans l'historique.",
-  },
-];
+const VALUE_ICONS = [Microscope, ShieldCheck, Ruler, Lightbulb, Lock];
 
-const JOURNEY = [
-  {
-    icon: BookX,
-    when: "Hier",
-    title: "Cahiers et tableurs",
-    text: "Les informations se dispersent, les étiquettes s'effacent, la traçabilité dépend de la mémoire de l'équipe.",
-    state: "past",
-  },
-  {
-    icon: Sparkles,
-    when: "Aujourd'hui",
-    title: "CELLAR",
-    text: "Un premier logiciel pour la cryoconservation : chaque ampoule a une entrée, un emplacement et une archive.",
-    state: "now",
-  },
-  {
-    icon: Layers,
-    when: "Demain",
-    title: "La gamme CYTOVEX",
-    text: "Stocks, équipements, données : des logiciels qui partagent la même ergonomie et les mêmes droits.",
-    state: "next",
-  },
+const JOURNEY_META = [
+  { icon: BookX, state: "past" },
+  { icon: Sparkles, state: "now" },
+  { icon: Layers, state: "next" },
 ] as const;
 
-const TONE = [
-  ["Professionnels", "sans être froids"],
-  ["Scientifiques", "sans être inutilement complexes"],
-  ["Innovants", "sans promesses exagérées"],
-  ["Accessibles", "aux chercheurs, techniciens et responsables"],
-];
-
-const RULES = [
-  "Une identité commune sur les sites, les applications, les documents et les présentations.",
-  "Une icône et une couleur propres à chaque logiciel, dans le même langage graphique.",
-  "Des versions claire et sombre pour chaque interface.",
-  "Une navigation identique : qui connaît CELLAR retrouve ses repères partout.",
-];
-
 function Vision() {
+  const t = useT();
+  const tv = t.vision;
+  const VALUES = tv.values.map((x, i) => ({ ...x, icon: VALUE_ICONS[i]! }));
+  const JOURNEY = tv.journey.map((x, i) => ({ ...x, ...JOURNEY_META[i]! }));
   const [active, setActive] = useState(0);
   const v = VALUES[active]!;
 
@@ -103,13 +36,14 @@ function Vision() {
         <NetworkField density={0.8} />
         <div className="wrap relative grid items-center gap-12 pb-20 pt-36 md:pb-28 md:pt-40 lg:grid-cols-[1.3fr_1fr]">
           <div className="hero-in">
-            <p className="text-sm font-semibold text-teal">Notre vision</p>
+            <p className="text-sm font-semibold text-teal">{tv.kicker}</p>
             <h1 className="mt-4 text-[2.5rem] font-semibold leading-[1.06] text-white md:text-[3.6rem]">
-              Les bons outils numériques pour <span className="text-sheen">mieux maîtriser la science</span>.
+              {tv.title1}
+              <span className="text-sheen">{tv.titleAccent}</span>
+              {tv.title2}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-              CYTOVEX est un éditeur de solutions logicielles dédié aux sciences du vivant. Nous concevons des outils
-              modernes, intuitifs et fiables pour accompagner les laboratoires au quotidien.
+              {tv.lead}
             </p>
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-[22rem]" aria-hidden="true">
@@ -128,18 +62,18 @@ function Vision() {
             <span className="absolute -right-6 -top-10 font-display text-[9rem] font-bold leading-none text-science/[0.07]" aria-hidden="true">
               M
             </span>
-            <h2 className="relative text-sm font-semibold text-science">Notre mission</h2>
+            <h2 className="relative text-sm font-semibold text-science">{tv.missionLabel}</h2>
             <p className="relative mt-4 font-display text-2xl font-medium leading-snug md:text-[1.85rem]">
-              Rendre les activités scientifiques plus simples, plus fiables et mieux maîtrisées grâce au numérique.
+              {tv.mission}
             </p>
           </article>
           <article className="lift relative overflow-hidden rounded-2xl border border-line bg-white p-8 md:p-10">
             <span className="absolute -right-6 -top-10 font-display text-[9rem] font-bold leading-none text-teal/[0.09]" aria-hidden="true">
               V
             </span>
-            <h2 className="relative text-sm font-semibold text-teal">Notre ambition</h2>
+            <h2 className="relative text-sm font-semibold text-teal">{tv.ambitionLabel}</h2>
             <p className="relative mt-4 font-display text-2xl font-medium leading-snug md:text-[1.85rem]">
-              Devenir un éditeur de référence pour les outils numériques des laboratoires.
+              {tv.ambition}
             </p>
           </article>
         </div>
@@ -150,7 +84,7 @@ function Vision() {
         <NetworkField density={0.5} />
         <div className="wrap relative">
           <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-white md:text-[2.6rem]">
-            Du cahier de laboratoire à une gamme complète.
+            {tv.journeyTitle}
           </h2>
           <ol data-stagger className="relative mt-14 grid gap-6 md:grid-cols-3">
             <span className="absolute left-0 right-0 top-[3.25rem] hidden h-px bg-gradient-to-r from-white/10 via-teal/60 to-science/40 md:block" aria-hidden="true" />
@@ -185,9 +119,9 @@ function Vision() {
 
       {/* Valeurs : sélecteur interactif */}
       <section className="wrap py-20 md:py-28">
-        <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.6rem]">Cinq engagements, dans chaque logiciel.</h2>
+        <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.6rem]">{tv.valuesTitle}</h2>
         <div data-reveal className="mt-12 grid gap-6 lg:grid-cols-[22rem_1fr]">
-          <div role="tablist" aria-label="Nos engagements" className="flex flex-col gap-1">
+          <div role="tablist" aria-label={tv.valuesLabel} className="flex flex-col gap-1">
             {VALUES.map((val, i) => {
               const on = i === active;
               return (
@@ -231,7 +165,7 @@ function Vision() {
             <v.icon className="absolute right-8 top-8 h-24 w-24 text-white/10 md:h-32 md:w-32" strokeWidth={1.2} aria-hidden="true" />
             <div key={active} className="relative animate-in fade-in slide-in-from-bottom-3 duration-500">
               <p className="text-sm font-semibold text-white/70">
-                {active + 1} sur {VALUES.length}
+                {active + 1} {tv.of} {VALUES.length}
               </p>
               <h3 className="mt-2 text-3xl font-semibold text-white md:text-4xl">{v.name}</h3>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/85">{v.text}</p>
@@ -244,9 +178,9 @@ function Vision() {
       <section className="border-t border-line bg-mist py-20 md:py-28">
         <div className="wrap grid gap-14 lg:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">Une seule identité, plusieurs logiciels.</h2>
+            <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">{tv.identityTitle}</h2>
             <ul data-stagger className="mt-8 space-y-4">
-              {RULES.map((r) => (
+              {tv.rules.map((r) => (
                 <li key={r} className="flex gap-4 rounded-xl border border-line bg-white p-5 transition-transform duration-500 hover:translate-x-1.5">
                   <FlaskConical className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
                   <span className="leading-relaxed text-slate">{r}</span>
@@ -255,9 +189,9 @@ function Vision() {
             </ul>
           </div>
           <div>
-            <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">Notre façon de parler aux laboratoires.</h2>
+            <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">{tv.toneTitle}</h2>
             <dl data-stagger className="mt-8 grid gap-4 sm:grid-cols-2">
-              {TONE.map(([a, b]) => (
+              {tv.tone.map(([a, b]) => (
                 <div key={a} className="lift rounded-xl border border-line bg-white p-5">
                   <dt className="font-display text-xl font-semibold text-science">{a}</dt>
                   <dd className="mt-1 text-slate">{b}</dd>
@@ -274,14 +208,14 @@ function Vision() {
           <NetworkField density={0.6} />
           <p className="relative font-display text-lg font-medium text-teal">Science, engineered digitally.</p>
           <h2 className="relative mx-auto mt-3 max-w-2xl text-3xl font-semibold text-white md:text-4xl">
-            Construisons ensemble les outils de votre laboratoire.
+            {tv.ctaTitle}
           </h2>
           <div className="relative mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-primary glow-btn rounded-full">
-              Nous contacter
+              {tv.ctaContact}
             </Link>
             <Link to="/solutions" className="btn-ghost-dark rounded-full">
-              Voir nos solutions
+              {tv.ctaSolutions}
             </Link>
           </div>
         </div>

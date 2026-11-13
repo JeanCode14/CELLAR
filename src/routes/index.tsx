@@ -2,31 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SuiteNetwork } from "@/components/site/SuiteNetwork";
 import { NetworkField } from "@/components/site/NetworkField";
 import { Marquee } from "@/components/site/Marquee";
-import { suiteApps, statusLabel } from "@/data/apps";
+import { suiteApps } from "@/data/apps";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "CYTOVEX — Science, engineered digitally." },
-      {
-        name: "description",
-        content:
-          "CYTOVEX conçoit des solutions logicielles pour les sciences du vivant. Premier logiciel : CELLAR, pour la cryoconservation.",
-      },
-    ],
-  }),
   component: Home,
 });
 
-const VALUES = [
-  { name: "Rigueur scientifique", text: "Des outils construits à partir des pratiques réelles de la paillasse." },
-  { name: "Fiabilité", text: "Chaque donnée enregistrée reste exacte, datée et retrouvable." },
-  { name: "Simplicité", text: "Une interface que l'on comprend sans formation de plusieurs jours." },
-  { name: "Innovation", text: "Le numérique là où il fait gagner du temps, pas ailleurs." },
-  { name: "Sécurité", text: "Des droits par utilisateur et un historique de chaque action." },
-];
-
 function Home() {
+  const t = useT();
   const cellar = suiteApps[0]!;
   const upcoming = suiteApps.slice(1);
 
@@ -41,18 +25,19 @@ function Home() {
           <div className="hero-in">
             <p className="font-display text-lg font-medium text-teal">Science, engineered digitally.</p>
             <h1 className="mt-4 text-[2.6rem] font-semibold leading-[1.05] text-white md:text-[3.8rem]">
-              Des solutions numériques conçues pour <span className="text-sheen">les laboratoires</span>.
+              {t.home.title1}
+              <span className="text-sheen">{t.home.titleAccent}</span>
+              {t.home.title2}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-              CYTOVEX édite des logiciels pour les sciences du vivant : des outils modernes et fiables pour gérer les
-              échantillons, les stocks, les équipements et les données.
+              {t.home.lead}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/cellar" className="btn-primary glow-btn rounded-full">
-                Découvrir CELLAR
+                {t.home.ctaCellar}
               </Link>
               <Link to="/contact" className="btn-ghost-dark rounded-full">
-                Nous contacter
+                {t.home.ctaContact}
               </Link>
             </div>
           </div>
@@ -67,17 +52,11 @@ function Home() {
       {/* Présentation */}
       <section className="wrap grid gap-10 py-20 md:grid-cols-[1fr_1.4fr] md:py-28">
         <h2 className="text-3xl font-semibold leading-tight md:text-[2.6rem]">
-          Mettre la technologie au service de la recherche.
+          {t.home.aboutTitle}
         </h2>
         <div data-stagger className="space-y-5 text-lg leading-relaxed text-slate">
-          <p>
-            Dans beaucoup de laboratoires, les échantillons, les stocks et les équipements se gèrent encore avec des
-            cahiers et des tableurs. Les informations se perdent, la traçabilité dépend de la mémoire de l'équipe.
-          </p>
-          <p>
-            CYTOVEX conçoit des outils qui simplifient ces tâches, renforcent la traçabilité et facilitent le travail
-            des chercheurs, des techniciens et des responsables de laboratoire.
-          </p>
+          <p>{t.home.about1}</p>
+          <p>{t.home.about2}</p>
         </div>
       </section>
 
@@ -86,10 +65,10 @@ function Home() {
         <div className="wrap">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="max-w-xl text-3xl font-semibold leading-tight md:text-[2.6rem]">
-              Un premier logiciel, une gamme en construction.
+              {t.home.rangeTitle}
             </h2>
             <Link to="/solutions" className="font-semibold text-science hover:underline">
-              Voir toutes les solutions
+              {t.home.rangeAll}
             </Link>
           </div>
 
@@ -104,15 +83,15 @@ function Home() {
               <div className="flex flex-wrap items-center gap-3">
                 <h3 className="text-3xl font-bold tracking-[0.06em] text-white">{cellar.name}</h3>
                 <span className="rounded-full border border-alert/60 px-3 py-0.5 text-xs font-semibold text-alert">
-                  {statusLabel[cellar.status]}
+                  {t.status[cellar.status]}
                 </span>
               </div>
               <p className="mt-1 font-medium" style={{ color: cellar.color }}>
-                {cellar.domain}
+                {t.apps.cellar.domain}
               </p>
-              <p className="mt-3 max-w-2xl leading-relaxed text-white/70">{cellar.description}</p>
+              <p className="mt-3 max-w-2xl leading-relaxed text-white/70">{t.apps.cellar.description}</p>
             </div>
-            <span className="btn-ghost-dark relative rounded-full group-hover:border-white/60">Voir CELLAR</span>
+            <span className="btn-ghost-dark relative rounded-full group-hover:border-white/60">{t.home.seeCellar}</span>
           </Link>
 
           <ul data-stagger className="mt-5 grid gap-5 md:grid-cols-3">
@@ -122,9 +101,9 @@ function Home() {
                   <h3 className="text-xl font-bold tracking-[0.06em]">{app.name}</h3>
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: app.color }} aria-hidden="true" />
                 </div>
-                <p className="mt-1 text-sm font-medium text-slate">{app.domain}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{app.description}</p>
-                <p className="mt-4 text-xs text-slate/80">{statusLabel[app.status]}</p>
+                <p className="mt-1 text-sm font-medium text-slate">{t.apps[app.id].domain}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{t.apps[app.id].description}</p>
+                <p className="mt-4 text-xs text-slate/80">{t.status[app.status]}</p>
               </li>
             ))}
           </ul>
@@ -133,9 +112,9 @@ function Home() {
 
       {/* Valeurs */}
       <section className="wrap py-20 md:py-28">
-        <h2 className="max-w-xl text-3xl font-semibold leading-tight md:text-[2.6rem]">Ce qui guide nos logiciels.</h2>
+        <h2 className="max-w-xl text-3xl font-semibold leading-tight md:text-[2.6rem]">{t.home.valuesTitle}</h2>
         <dl data-stagger className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
-          {VALUES.map((v) => (
+          {t.home.values.map((v) => (
             <div key={v.name} className="border-t-2 border-teal pt-5">
               <dt className="font-display text-lg font-semibold">{v.name}</dt>
               <dd className="mt-2 text-sm leading-relaxed text-slate">{v.text}</dd>
@@ -149,11 +128,11 @@ function Home() {
         <div data-reveal className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl bg-gradient-to-br from-science to-[#1d5f99] px-8 py-10 text-white md:flex-row md:items-center md:px-12">
           <NetworkField density={0.6} />
           <div className="relative">
-            <h2 className="text-2xl font-semibold text-white md:text-3xl">CELLAR est testé en conditions réelles.</h2>
-            <p className="mt-2 text-white/80">Vous souhaitez l'essayer dans votre laboratoire ? Parlons-en.</p>
+            <h2 className="text-2xl font-semibold text-white md:text-3xl">{t.home.ctaTitle}</h2>
+            <p className="mt-2 text-white/80">{t.home.ctaText}</p>
           </div>
           <Link to="/contact" className="btn relative rounded-full bg-white text-science transition-transform hover:-translate-y-0.5 hover:bg-mist">
-            Nous contacter
+            {t.home.ctaContact}
           </Link>
         </div>
       </section>

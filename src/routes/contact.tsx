@@ -2,20 +2,14 @@ import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CONTACT_EMAIL } from "@/data/site";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — CYTOVEX" },
-      { name: "description", content: "Contactez CYTOVEX : démonstration de CELLAR, participation aux essais, assistance." },
-    ],
-  }),
   component: Contact,
 });
 
-const SUBJECTS = ["Découvrir CELLAR", "Participer aux essais", "Assistance", "Partenariat", "Autre demande"];
-
 function Contact() {
+  const t = useT().contact;
   const [state, setState] = useState<"idle" | "opened" | "inactive">("idle");
 
   function submit(e: FormEvent<HTMLFormElement>) {
@@ -27,9 +21,9 @@ function Contact() {
     const d = new FormData(e.currentTarget);
     const get = (k: string) => String(d.get(k) ?? "").trim();
     const body = [
-      `Nom : ${get("name")}`,
-      `Laboratoire / organisme : ${get("org")}`,
-      `E-mail : ${get("email")}`,
+      `${t.mailName} : ${get("name")}`,
+      `${t.mailOrg} : ${get("org")}`,
+      `${t.mailEmail} : ${get("email")}`,
       "",
       get("message"),
     ].join("\n");
@@ -39,19 +33,16 @@ function Contact() {
 
   return (
     <>
-      <PageHero kicker="Contact" title="Parlons de votre laboratoire.">
-        Une démonstration de CELLAR, une participation aux essais ou une question : écrivez-nous.
+      <PageHero kicker={t.kicker} title={t.title}>
+        {t.lead}
       </PageHero>
 
       <section className="wrap grid gap-14 py-20 md:py-24 lg:grid-cols-[1fr_1.6fr]">
         <div data-reveal className="space-y-6 text-slate">
-          <p className="text-lg leading-relaxed">
-            Dites-nous qui vous êtes et ce que vous stockez : cuves, congélateurs, nombre d'utilisateurs. Nous vous
-            répondons avec une proposition adaptée.
-          </p>
+          <p className="text-lg leading-relaxed">{t.intro}</p>
           {CONTACT_EMAIL && (
             <p>
-              Par e-mail :{" "}
+              {t.byEmail}{" "}
               <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-science hover:underline">
                 {CONTACT_EMAIL}
               </a>
@@ -61,41 +52,41 @@ function Contact() {
 
         <form data-reveal onSubmit={submit} className="grid gap-5 rounded-2xl border border-line bg-white p-7 shadow-[0_30px_60px_-35px_rgba(16,36,58,.35)] md:grid-cols-2 md:p-9">
           <label className="grid gap-2 text-sm font-medium">
-            Nom et prénom
+            {t.name}
             <input name="name" required autoComplete="name" className="field" />
           </label>
           <label className="grid gap-2 text-sm font-medium">
-            Laboratoire ou organisme
+            {t.org}
             <input name="org" autoComplete="organization" className="field" />
           </label>
           <label className="grid gap-2 text-sm font-medium">
-            E-mail professionnel
+            {t.email}
             <input name="email" type="email" required autoComplete="email" className="field" />
           </label>
           <label className="grid gap-2 text-sm font-medium">
-            Objet
+            {t.subject}
             <select name="subject" className="field">
-              {SUBJECTS.map((s) => (
+              {t.subjects.map((s) => (
                 <option key={s}>{s}</option>
               ))}
             </select>
           </label>
           <label className="grid gap-2 text-sm font-medium md:col-span-2">
-            Message
+            {t.message}
             <textarea name="message" required rows={6} className="field resize-y" />
           </label>
           <div className="flex flex-wrap items-center gap-4 md:col-span-2">
             <button type="submit" className="btn-primary glow-btn rounded-full">
-              Envoyer le message
+              {t.send}
             </button>
             {state === "opened" && (
               <p className="text-sm text-teal" role="status">
-                Votre messagerie s'ouvre avec le message prêt à envoyer.
+                {t.opened}
               </p>
             )}
             {state === "inactive" && (
               <p className="text-sm text-alert" role="status">
-                Le formulaire n'est pas encore relié à une adresse de réception.
+                {t.inactive}
               </p>
             )}
           </div>

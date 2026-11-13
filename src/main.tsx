@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createHashHistory, createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { LanguageProvider } from "./i18n";
 
 // Navigation par « # » : fonctionne sur n'importe quel hébergement statique (GitHub Pages, etc.).
 // VITE_MEMORY_HISTORY=1 : navigation sans modifier l'adresse (pour un aperçu intégré dans une autre page).
@@ -18,17 +19,12 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// Titre de l'onglet repris de la déclaration head() de chaque page.
-router.subscribe("onResolved", () => {
-  const titles = router.state.matches
-    .flatMap((m) => (m.meta ?? []) as Array<{ title?: string } | undefined>)
-    .map((m) => m?.title)
-    .filter(Boolean);
-  if (titles.length) document.title = titles[titles.length - 1]!;
-});
+// Le titre de l'onglet est géré par la mise en page (src/routes/__root.tsx), dans la langue choisie.
 
 createRoot(document.getElementById("app")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </StrictMode>,
 );
