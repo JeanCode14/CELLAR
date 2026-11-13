@@ -33,6 +33,11 @@ export function SuiteNetwork() {
       </defs>
 
       <circle cx={CENTER.x} cy={CENTER.y} r="150" fill="url(#net-glow)" />
+      <circle className="spin-slow" cx={CENTER.x} cy={CENTER.y} r="118" fill="none" stroke="rgba(37,183,165,.28)" strokeWidth="1.5" strokeDasharray="3 10" />
+      <g className="spin-rev">
+        <circle cx={CENTER.x} cy={CENTER.y} r="100" fill="none" stroke="rgba(40,123,193,.22)" strokeWidth="1" />
+        <circle cx={CENTER.x} cy={CENTER.y - 100} r="4" fill="#25b7a5" />
+      </g>
 
       {suiteApps.map((app, i) => {
         const p = POS[app.id];

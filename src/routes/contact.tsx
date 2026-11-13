@@ -44,7 +44,7 @@ function Contact() {
       </PageHero>
 
       <section className="wrap grid gap-14 py-20 md:py-24 lg:grid-cols-[1fr_1.6fr]">
-        <div className="space-y-6 text-slate">
+        <div data-reveal className="space-y-6 text-slate">
           <p className="text-lg leading-relaxed">
             Dites-nous qui vous êtes et ce que vous stockez : cuves, congélateurs, nombre d'utilisateurs. Nous vous
             répondons avec une proposition adaptée.
@@ -59,7 +59,7 @@ function Contact() {
           )}
         </div>
 
-        <form onSubmit={submit} className="grid gap-5 rounded-[10px] border border-line bg-white p-7 md:grid-cols-2 md:p-9">
+        <form data-reveal onSubmit={submit} className="grid gap-5 rounded-2xl border border-line bg-white p-7 shadow-[0_30px_60px_-35px_rgba(16,36,58,.35)] md:grid-cols-2 md:p-9">
           <label className="grid gap-2 text-sm font-medium">
             Nom et prénom
             <input name="name" required autoComplete="name" className="field" />
@@ -85,7 +85,7 @@ function Contact() {
             <textarea name="message" required rows={6} className="field resize-y" />
           </label>
           <div className="flex flex-wrap items-center gap-4 md:col-span-2">
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="btn-primary glow-btn rounded-full">
               Envoyer le message
             </button>
             {state === "opened" && (

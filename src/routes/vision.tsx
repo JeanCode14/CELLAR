@@ -33,7 +33,7 @@ function Vision() {
         CYTOVEX est un éditeur de solutions logicielles dédié aux sciences du vivant.
       </PageHero>
 
-      <section className="wrap grid gap-12 py-20 md:grid-cols-2 md:py-24">
+      <section data-stagger className="wrap grid gap-12 py-20 md:grid-cols-2 md:py-24">
         <div>
           <h2 className="text-sm font-semibold text-science">Notre mission</h2>
           <p className="mt-3 font-display text-2xl font-medium leading-snug md:text-[1.9rem]">
@@ -51,9 +51,9 @@ function Vision() {
       <section className="border-y border-line bg-mist py-20 md:py-24">
         <div className="wrap grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">Nos engagements.</h2>
-          <dl className="divide-y divide-line border-y border-line">
+          <dl data-stagger className="divide-y divide-line border-y border-line">
             {VALUES.map((v) => (
-              <div key={v.name} className="grid gap-2 py-6 sm:grid-cols-[13rem_1fr]">
+              <div key={v.name} className="grid gap-2 py-6 transition-transform duration-500 hover:translate-x-2 sm:grid-cols-[13rem_1fr]">
                 <dt className="font-display text-lg font-semibold">{v.name}</dt>
                 <dd className="leading-relaxed text-slate">{v.text}</dd>
               </div>
@@ -66,7 +66,7 @@ function Vision() {
         <div>
           <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">De CELLAR à la gamme complète.</h2>
         </div>
-        <div className="space-y-5 text-lg leading-relaxed text-slate">
+        <div data-stagger className="space-y-5 text-lg leading-relaxed text-slate">
           <p>
             CELLAR est notre premier logiciel, pas notre définition. De la gestion des lignées cellulaires à la maîtrise
             des stocks, des équipements et des données scientifiques, notre ambition est de simplifier les processus,

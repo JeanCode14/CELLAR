@@ -28,17 +28,17 @@ function Solutions() {
       </PageHero>
 
       <section className="wrap py-20 md:py-24">
-        <ul className="divide-y divide-line border-y border-line">
+        <ul data-stagger className="divide-y divide-line border-y border-line">
           {suiteApps.map((app) => {
             const live = app.status !== "preparation";
             return (
-              <li key={app.id} className="grid gap-6 py-10 md:grid-cols-[10rem_1fr_auto] md:items-center">
+              <li key={app.id} className="group grid gap-6 py-10 md:grid-cols-[10rem_1fr_auto] md:items-center">
                 <div className="flex items-center gap-4 md:block">
                   {app.icon ? (
-                    <img src={app.icon} alt="" className="h-20 w-20" />
+                    <img src={app.icon} alt="" className="h-20 w-20 transition-transform duration-700 group-hover:rotate-12 group-hover:scale-110" />
                   ) : (
                     <span
-                      className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed font-display text-2xl font-bold"
+                      className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed font-display text-2xl font-bold transition-transform duration-700 group-hover:rotate-45"
                       style={{ borderColor: app.color, color: app.color }}
                       aria-hidden="true"
                     >
@@ -65,7 +65,7 @@ function Solutions() {
                   <p className="mt-3 max-w-2xl leading-relaxed text-slate">{app.description}</p>
                 </div>
                 {live && (
-                  <Link to="/cellar" className="btn-primary">
+                  <Link to="/cellar" className="btn-primary glow-btn rounded-full">
                     Découvrir CELLAR
                   </Link>
                 )}
@@ -79,10 +79,12 @@ function Solutions() {
       <section className="border-t border-line bg-mist py-20 md:py-24">
         <div className="wrap">
           <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">Un socle commun à tous les logiciels.</h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div data-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {COMMON.map((c) => (
-              <div key={c.title}>
-                <c.icon className="h-6 w-6 text-science" strokeWidth={1.75} />
+              <div key={c.title} className="lift group rounded-2xl border border-line bg-white p-6">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12">
+                  <c.icon className="h-5 w-5" strokeWidth={1.9} />
+                </span>
                 <h3 className="mt-4 text-lg font-semibold">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{c.text}</p>
               </div>

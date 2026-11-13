@@ -76,7 +76,7 @@ export function ClipTour() {
       </div>
 
       <div id="clip-panel" role="tabpanel" aria-label={clip.title}>
-        <div className="overflow-hidden rounded-[10px] bg-night p-1.5 shadow-[0_30px_60px_-30px_rgba(16,36,58,.55)]">
+        <div className="overflow-hidden rounded-2xl bg-night p-1.5 shadow-[0_30px_60px_-30px_rgba(16,36,58,.55)]">
           <div className="flex items-center gap-1.5 px-2.5 pb-1.5 pt-1" aria-hidden="true">
             <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/20" />

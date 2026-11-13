@@ -42,17 +42,17 @@ function Support() {
         Documentation, assistance et réponses aux questions les plus fréquentes.
       </PageHero>
 
-      <section className="wrap grid gap-6 py-20 md:grid-cols-3 md:py-24">
-        <div className="rounded-[10px] border border-line bg-white p-7">
-          <BookOpen className="h-6 w-6 text-science" strokeWidth={1.75} />
+      <section data-stagger className="wrap grid gap-6 py-20 md:grid-cols-3 md:py-24">
+        <div className="lift group rounded-2xl border border-line bg-white p-7">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><BookOpen className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">Documentation</h2>
           <p className="mt-2 leading-relaxed text-slate">
             Le guide d'utilisation de CELLAR sera publié ici à la fin de la phase de test.
           </p>
           <p className="mt-4 text-sm font-medium text-slate">En préparation</p>
         </div>
-        <div className="rounded-[10px] border border-line bg-white p-7">
-          <LifeBuoy className="h-6 w-6 text-science" strokeWidth={1.75} />
+        <div className="lift group rounded-2xl border border-line bg-white p-7">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><LifeBuoy className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">Assistance</h2>
           <p className="mt-2 leading-relaxed text-slate">
             Un problème, une question sur votre installation ? Décrivez-le, nous revenons vers vous.
@@ -61,8 +61,8 @@ function Support() {
             Contacter l'assistance
           </Link>
         </div>
-        <div className="rounded-[10px] border border-line bg-white p-7">
-          <MessageSquare className="h-6 w-6 text-science" strokeWidth={1.75} />
+        <div className="lift group rounded-2xl border border-line bg-white p-7">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><MessageSquare className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">Suggestions</h2>
           <p className="mt-2 leading-relaxed text-slate">
             Une idée d'amélioration pour CELLAR ou un besoin pour un futur logiciel ? Elle nous intéresse.
@@ -76,7 +76,7 @@ function Support() {
       <section id="faq" className="border-t border-line bg-mist py-20 md:py-24">
         <div className="wrap grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">Questions fréquentes.</h2>
-          <div className="divide-y divide-line border-y border-line">
+          <div data-stagger className="divide-y divide-line border-y border-line">
             {FAQ.map((f) => (
               <details key={f.q} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-lg font-semibold">
@@ -85,7 +85,7 @@ function Support() {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 max-w-2xl leading-relaxed text-slate">{f.a}</p>
+                <p className="mt-3 max-w-2xl leading-relaxed text-slate animate-in fade-in slide-in-from-top-1 duration-300">{f.a}</p>
               </details>
             ))}
           </div>
