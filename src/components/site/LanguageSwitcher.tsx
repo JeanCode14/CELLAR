@@ -39,10 +39,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-expanded={open}
         aria-label={`${t.nav.language} : ${current.name}`}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-10 items-center gap-2 rounded-full border border-white/15 px-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/40 hover:text-white"
+        className="flex h-10 items-center gap-1.5 rounded-full border border-white/15 px-2.5 sm:gap-2 sm:px-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/40 hover:text-white"
       >
         <Flag />
-        <span>{lang.toUpperCase()}</span>
+        <span className="hidden sm:inline">{lang.toUpperCase()}</span>
         <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", open && "rotate-180")} />
       </button>
 
@@ -50,7 +50,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         <ul
           role="listbox"
           aria-label={t.nav.language}
-          className="animate-in fade-in slide-in-from-top-2 absolute right-0 top-12 z-50 w-48 overflow-hidden rounded-xl border border-white/10 bg-night p-1.5 shadow-[0_24px_50px_-20px_rgba(0,0,0,.6)] duration-200"
+          className="animate-in fade-in slide-in-from-top-2 absolute -right-12 top-12 sm:right-0 z-50 w-48 overflow-hidden rounded-xl border border-white/10 bg-night p-1.5 shadow-[0_24px_50px_-20px_rgba(0,0,0,.6)] duration-200"
         >
           {LANGS.map((l) => {
             const F = FLAGS[l.code]!;

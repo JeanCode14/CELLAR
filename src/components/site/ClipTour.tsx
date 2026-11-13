@@ -26,7 +26,7 @@ export function ClipTour() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[19rem_1fr] lg:gap-10">
-      <div role="tablist" aria-label={t.clips.label} className="flex flex-col gap-1">
+      <div role="tablist" aria-label={t.clips.label} className="-mx-5 flex snap-x gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:px-0 lg:pb-0">
         {CLIPS.map((c, i) => {
           const on = i === active;
           return (
@@ -41,20 +41,22 @@ export function ClipTour() {
                 setChosen(true);
               }}
               className={cn(
-                "rounded-md border-l-[3px] py-3.5 pl-5 pr-3 text-left transition-colors",
-                on ? "border-science bg-surface" : "border-transparent hover:bg-surface/60",
+                "shrink-0 snap-start rounded-full border px-4 py-2 text-left transition-colors lg:rounded-md lg:border-0 lg:border-l-[3px] lg:py-3.5 lg:pl-5 lg:pr-3",
+                on
+                  ? "border-science bg-science text-white lg:border-science lg:bg-surface"
+                  : "border-line bg-surface hover:bg-surface/60 lg:border-transparent lg:bg-transparent",
               )}
             >
-              <span className={cn("block font-display text-lg font-semibold", on ? "text-ink" : "text-slate")}>
+              <span className={cn("block whitespace-nowrap font-display text-sm font-semibold lg:whitespace-normal lg:text-lg", on ? "text-white lg:text-ink" : "text-slate")}>
                 {c.title}
               </span>
-              <span className={cn("mt-1 text-sm leading-relaxed text-slate", on ? "block" : "hidden lg:block lg:opacity-70")}>
+              <span className={cn("mt-1 hidden text-sm leading-relaxed text-slate lg:block", !on && "lg:opacity-70")}>
                 {c.text}
               </span>
             </button>
           );
         })}
-        <p className="mt-3 pl-5 text-xs text-slate">{t.clips.note}</p>
+        <p className="mt-3 hidden pl-5 text-xs text-slate lg:block">{t.clips.note}</p>
       </div>
 
       <div id="clip-panel" role="tabpanel" aria-label={clip.title}>
@@ -80,6 +82,10 @@ export function ClipTour() {
             }}
           />
         </div>
+        <p key={`d-${clip.id}`} className="animate-in fade-in mt-4 text-[15px] leading-relaxed text-slate duration-300 lg:hidden">
+          {clip.text}
+        </p>
+        <p className="mt-2 text-xs text-slate/80 lg:hidden">{t.clips.note}</p>
       </div>
     </div>
   );

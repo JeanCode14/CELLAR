@@ -34,7 +34,7 @@ function Vision() {
         <div className="pointer-events-none absolute -right-32 -top-40 h-[34rem] w-[34rem] rounded-full bg-science/25 blur-3xl" aria-hidden="true" />
         <div className="pointer-events-none absolute -bottom-40 -left-24 h-[26rem] w-[26rem] rounded-full bg-teal/15 blur-3xl" aria-hidden="true" />
         <NetworkField density={0.8} />
-        <div className="wrap relative grid items-center gap-12 pb-20 pt-36 md:pb-28 md:pt-40 lg:grid-cols-[1.3fr_1fr]">
+        <div className="wrap relative grid items-center gap-12 pb-16 pt-28 md:pb-28 md:pt-40 lg:grid-cols-[1.3fr_1fr]">
           <div className="hero-in">
             <p className="text-sm font-semibold text-teal">{tv.kicker}</p>
             <h1 className="mt-4 text-[2.5rem] font-semibold leading-[1.06] text-white md:text-[3.6rem]">
@@ -46,7 +46,7 @@ function Vision() {
               {tv.lead}
             </p>
           </div>
-          <div className="relative mx-auto aspect-square w-full max-w-[22rem]" aria-hidden="true">
+          <div className="relative mx-auto aspect-square w-full max-w-[13rem] sm:max-w-[22rem]" aria-hidden="true">
             <div className="spin-slow absolute inset-0 rounded-full border border-dashed border-teal/30" />
             <div className="spin-rev absolute inset-10 rounded-full border border-science/30" />
             <div className="absolute inset-20 rounded-full bg-teal/20 blur-3xl" />
@@ -132,9 +132,9 @@ function Vision() {
                   aria-selected={on}
                   aria-controls="value-panel"
                   onClick={() => setActive(i)}
-                  onMouseEnter={() => setActive(i)}
+                  onMouseEnter={() => window.matchMedia("(hover: hover)").matches && setActive(i)}
                   className={cn(
-                    "group flex items-center gap-4 rounded-xl px-4 py-3.5 text-left transition-all duration-300",
+                    "group flex items-start gap-4 rounded-xl lg:items-center px-4 py-3.5 text-left transition-all duration-300",
                     on ? "bg-night text-white shadow-[0_18px_40px_-20px_rgba(16,36,58,.7)]" : "hover:bg-mist",
                   )}
                 >
@@ -151,6 +151,11 @@ function Vision() {
                       {val.name}
                     </span>
                     <span className={cn("block text-sm", on ? "text-white/60" : "text-slate")}>{val.short}</span>
+                    {on && (
+                      <span className="animate-in fade-in slide-in-from-top-1 mt-3 block text-[15px] leading-relaxed text-white/85 duration-300 lg:hidden">
+                        {val.text}
+                      </span>
+                    )}
                   </span>
                 </button>
               );
@@ -159,7 +164,7 @@ function Vision() {
           <div
             id="value-panel"
             role="tabpanel"
-            className="relative flex min-h-[18rem] flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br from-science to-[#1b5a92] p-8 text-white md:p-12"
+            className="relative hidden min-h-[18rem] flex-col justify-end overflow-hidden lg:flex rounded-2xl bg-gradient-to-br from-science to-[#1b5a92] p-8 text-white md:p-12"
           >
             <NetworkField density={0.5} />
             <v.icon className="absolute right-8 top-8 h-24 w-24 text-white/10 md:h-32 md:w-32" strokeWidth={1.2} aria-hidden="true" />

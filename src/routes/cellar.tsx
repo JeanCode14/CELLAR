@@ -50,7 +50,7 @@ function Cellar() {
       {/* Hero, aux couleurs de CELLAR */}
       <section data-hero className="relative overflow-hidden bg-[radial-gradient(ellipse_at_70%_40%,#22406a_0%,#142a47_55%,#0d1c31_100%)]">
         <NetworkField tone="frost" density={0.9} />
-        <div className="wrap relative grid items-center gap-8 pb-14 pt-32 md:pb-20 md:pt-36 lg:grid-cols-[1fr_1fr]">
+        <div className="wrap relative grid items-center gap-8 pb-12 pt-28 md:pb-20 md:pt-36 lg:grid-cols-[1fr_1fr]">
           <div className="hero-in">
             <p className="text-sm font-semibold text-cellar">{c.kicker}</p>
             <h1 className="mt-4 text-[2.5rem] font-semibold leading-[1.06] text-white md:text-[3.5rem]">
@@ -80,13 +80,23 @@ function Cellar() {
               alt={c.logoAlt}
               className="float w-full [mask-image:radial-gradient(ellipse_at_center,#000_55%,transparent_75%)]"
             />
-            <div className="glass-dark float absolute left-0 top-[12%] rounded-2xl border border-white/10 px-4 py-3 [animation-delay:-2s]">
+            <div className="glass-dark float absolute left-0 top-[12%] hidden rounded-2xl border border-white/10 px-4 py-3 [animation-delay:-2s] sm:block">
               <p className="font-mono text-lg font-medium text-cellar">−196 °C</p>
               <p className="text-xs text-white/60">{c.liquidNitrogen}</p>
             </div>
-            <div className="glass-dark float absolute bottom-[18%] right-0 rounded-2xl border border-white/10 px-4 py-3 [animation-delay:-4s]">
+            <div className="glass-dark float absolute bottom-[18%] right-0 hidden rounded-2xl border border-white/10 px-4 py-3 [animation-delay:-4s] sm:block">
               <p className="font-mono text-lg font-medium text-cellar">−80 °C</p>
               <p className="text-xs text-white/60">{c.freezer}</p>
+            </div>
+            <div className="mt-2 flex justify-center gap-3 sm:hidden">
+              <div className="glass-dark rounded-xl border border-white/10 px-3 py-2">
+                <p className="font-mono text-base font-medium text-cellar">−196 °C</p>
+                <p className="text-[11px] text-white/60">{c.liquidNitrogen}</p>
+              </div>
+              <div className="glass-dark rounded-xl border border-white/10 px-3 py-2">
+                <p className="font-mono text-base font-medium text-cellar">−80 °C</p>
+                <p className="text-[11px] text-white/60">{c.freezer}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -182,15 +192,15 @@ function Cellar() {
             <caption className="sr-only">{c.compareCaption}</caption>
             <thead className="bg-mist text-sm">
               <tr>
-                <th scope="col" className="px-6 py-4 font-semibold">{c.compareNeed}</th>
-                <th scope="col" className="w-28 px-4 py-4 text-center font-semibold text-slate md:w-40">{c.comparePaper}</th>
-                <th scope="col" className="w-28 px-4 py-4 text-center font-semibold text-science md:w-40">CELLAR</th>
+                <th scope="col" className="px-4 py-4 font-semibold sm:px-6">{c.compareNeed}</th>
+                <th scope="col" className="w-20 px-2 py-4 text-center text-xs font-semibold text-slate sm:w-28 sm:px-4 sm:text-sm md:w-40">{c.comparePaper}</th>
+                <th scope="col" className="w-20 px-2 py-4 text-center text-xs font-semibold text-science sm:w-28 sm:px-4 sm:text-sm md:w-40">CELLAR</th>
               </tr>
             </thead>
             <tbody>
               {c.compareRows.map((row) => (
                 <tr key={row} className="border-t border-line">
-                  <th scope="row" className="px-6 py-4 font-normal">{row}</th>
+                  <th scope="row" className="px-4 py-4 font-normal sm:px-6">{row}</th>
                   <td className="px-4 py-4 text-center">
                     <X className="mx-auto h-5 w-5 text-slate/50" aria-label={c.no} />
                   </td>

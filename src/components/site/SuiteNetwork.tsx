@@ -106,12 +106,12 @@ export function SuiteNetwork() {
             )}
             <text
               x={p.x}
-              y={p.y + (active ? 76 : 56)}
+              y={p.y + (active ? 78 : 58)}
               textAnchor="middle"
               fill="#fff"
               fontFamily="Space Grotesk, sans-serif"
               fontWeight="700"
-              fontSize={active ? 20 : 16}
+              className={active ? "text-[26px] sm:text-[20px]" : "text-[21px] sm:text-[16px]"}
               letterSpacing="1.5"
               opacity={active ? 1 : 0.75}
             >
@@ -119,11 +119,11 @@ export function SuiteNetwork() {
             </text>
             <text
               x={p.x}
-              y={p.y + (active ? 97 : 75)}
+              y={p.y + (active ? 102 : 80)}
               textAnchor="middle"
               fill={active ? app.color : "rgba(255,255,255,.5)"}
               fontFamily="Inter, sans-serif"
-              fontSize="13"
+              className="text-[17px] sm:text-[13px]"
             >
               {t.status[app.status]}
             </text>

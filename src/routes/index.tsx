@@ -21,7 +21,7 @@ function Home() {
         <div className="pointer-events-none absolute -right-40 -top-32 h-[36rem] w-[36rem] rounded-full bg-science/25 blur-3xl" aria-hidden="true" />
         <div className="pointer-events-none absolute -bottom-48 left-[-10rem] h-[28rem] w-[28rem] rounded-full bg-teal/15 blur-3xl" aria-hidden="true" />
         <NetworkField />
-        <div className="wrap relative grid items-center gap-10 pb-16 pt-32 md:pb-24 md:pt-36 lg:grid-cols-[1.05fr_1fr]">
+        <div className="wrap relative grid items-center gap-10 pb-12 pt-28 md:pb-24 md:pt-36 lg:grid-cols-[1.05fr_1fr]">
           <div className="hero-in">
             <p className="font-display text-lg font-medium text-teal">Science, engineered digitally.</p>
             <h1 className="mt-4 text-[2.6rem] font-semibold leading-[1.05] text-white md:text-[3.8rem]">
@@ -32,7 +32,7 @@ function Home() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
               {t.home.lead}
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link to="/cellar" className="btn-primary glow-btn rounded-full">
                 {t.home.ctaCellar}
               </Link>

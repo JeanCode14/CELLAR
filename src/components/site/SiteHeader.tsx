@@ -35,7 +35,7 @@ export function SiteHeader() {
         scrolled || open ? "glass-dark border-white/10" : "border-transparent",
       )}
     >
-      <div className="wrap flex h-16 items-center justify-between gap-6">
+      <div className="wrap flex h-16 items-center justify-between gap-3 sm:gap-6">
         <Link to="/" onClick={close} aria-label={t.nav.homeLabel} className="group">
           <Logo tone="dark" className="[&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:rotate-[120deg]" />
         </Link>
@@ -54,7 +54,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <ThemeToggle />
           <LanguageSwitcher />
           <Link to="/contact" className="btn-primary glow-btn hidden h-10 rounded-full px-5 text-sm lg:inline-flex">
