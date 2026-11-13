@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 import { useT } from "@/i18n";
 import { cn } from "@/lib/utils";
 
@@ -54,6 +55,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <LanguageSwitcher />
           <Link to="/contact" className="btn-primary glow-btn hidden h-10 rounded-full px-5 text-sm lg:inline-flex">
             {t.nav.contactCta}

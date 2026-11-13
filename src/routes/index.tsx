@@ -96,7 +96,7 @@ function Home() {
 
           <ul data-stagger className="mt-5 grid gap-5 md:grid-cols-3">
             {upcoming.map((app) => (
-              <li key={app.id} className="lift rounded-2xl border border-dashed border-night/20 bg-white/70 p-6">
+              <li key={app.id} className="lift rounded-2xl border border-dashed border-ink/20 bg-surface/70 p-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold tracking-[0.06em]">{app.name}</h3>
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: app.color }} aria-hidden="true" />
@@ -131,7 +131,7 @@ function Home() {
             <h2 className="text-2xl font-semibold text-white md:text-3xl">{t.home.ctaTitle}</h2>
             <p className="mt-2 text-white/80">{t.home.ctaText}</p>
           </div>
-          <Link to="/contact" className="btn relative rounded-full bg-white text-science transition-transform hover:-translate-y-0.5 hover:bg-mist">
+          <Link to="/contact" className="btn relative rounded-full bg-white text-science transition-transform hover:-translate-y-0.5 hover:bg-white/90">
             {t.home.ctaContact}
           </Link>
         </div>

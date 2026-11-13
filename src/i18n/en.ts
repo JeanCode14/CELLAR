@@ -24,6 +24,8 @@ const en: Messages = {
     mainNav: "Main navigation",
     mobileNav: "Mobile navigation",
     language: "Site language",
+    themeDark: "Switch to dark mode",
+    themeLight: "Switch to light mode",
   },
   status: {
     test: "In testing",

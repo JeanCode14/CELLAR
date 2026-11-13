@@ -16,13 +16,13 @@ function Support() {
       </PageHero>
 
       <section data-stagger className="wrap grid gap-6 py-20 md:grid-cols-3 md:py-24">
-        <div className="lift group rounded-2xl border border-line bg-white p-7">
+        <div className="lift group rounded-2xl border border-line bg-surface p-7">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><BookOpen className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">{t.docTitle}</h2>
           <p className="mt-2 leading-relaxed text-slate">{t.docText}</p>
           <p className="mt-4 text-sm font-medium text-slate">{t.docStatus}</p>
         </div>
-        <div className="lift group rounded-2xl border border-line bg-white p-7">
+        <div className="lift group rounded-2xl border border-line bg-surface p-7">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><LifeBuoy className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">{t.helpTitle}</h2>
           <p className="mt-2 leading-relaxed text-slate">{t.helpText}</p>
@@ -30,7 +30,7 @@ function Support() {
             {t.helpCta}
           </Link>
         </div>
-        <div className="lift group rounded-2xl border border-line bg-white p-7">
+        <div className="lift group rounded-2xl border border-line bg-surface p-7">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12"><MessageSquare className="h-5 w-5" /></span>
           <h2 className="mt-4 text-xl font-semibold">{t.ideaTitle}</h2>
           <p className="mt-2 leading-relaxed text-slate">{t.ideaText}</p>

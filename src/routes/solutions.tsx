@@ -72,7 +72,7 @@ function Solutions() {
           <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">{t.solutions.commonTitle}</h2>
           <div data-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {t.solutions.common.map((c, i) => ({ ...c, icon: COMMON_ICONS[i]! })).map((c) => (
-              <div key={c.title} className="lift group rounded-2xl border border-line bg-white p-6">
+              <div key={c.title} className="lift group rounded-2xl border border-line bg-surface p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12">
                   <c.icon className="h-5 w-5" strokeWidth={1.9} />
                 </span>

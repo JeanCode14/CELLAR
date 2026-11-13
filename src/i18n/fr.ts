@@ -26,6 +26,8 @@ const fr = {
     mainNav: "Navigation principale",
     mobileNav: "Navigation mobile",
     language: "Langue du site",
+    themeDark: "Passer en mode sombre",
+    themeLight: "Passer en mode clair",
   },
   status: {
     test: "En phase de test",

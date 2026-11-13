@@ -58,7 +58,7 @@ function Vision() {
       {/* Mission et ambition */}
       <section className="wrap py-20 md:py-28">
         <div data-stagger className="grid gap-6 md:grid-cols-2">
-          <article className="lift relative overflow-hidden rounded-2xl border border-line bg-white p-8 md:p-10">
+          <article className="lift relative overflow-hidden rounded-2xl border border-line bg-surface p-8 md:p-10">
             <span className="absolute -right-6 -top-10 font-display text-[9rem] font-bold leading-none text-science/[0.07]" aria-hidden="true">
               M
             </span>
@@ -67,7 +67,7 @@ function Vision() {
               {tv.mission}
             </p>
           </article>
-          <article className="lift relative overflow-hidden rounded-2xl border border-line bg-white p-8 md:p-10">
+          <article className="lift relative overflow-hidden rounded-2xl border border-line bg-surface p-8 md:p-10">
             <span className="absolute -right-6 -top-10 font-display text-[9rem] font-bold leading-none text-teal/[0.09]" aria-hidden="true">
               V
             </span>
@@ -181,7 +181,7 @@ function Vision() {
             <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">{tv.identityTitle}</h2>
             <ul data-stagger className="mt-8 space-y-4">
               {tv.rules.map((r) => (
-                <li key={r} className="flex gap-4 rounded-xl border border-line bg-white p-5 transition-transform duration-500 hover:translate-x-1.5">
+                <li key={r} className="flex gap-4 rounded-xl border border-line bg-surface p-5 transition-transform duration-500 hover:translate-x-1.5">
                   <FlaskConical className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
                   <span className="leading-relaxed text-slate">{r}</span>
                 </li>
@@ -192,7 +192,7 @@ function Vision() {
             <h2 className="text-3xl font-semibold leading-tight md:text-[2.4rem]">{tv.toneTitle}</h2>
             <dl data-stagger className="mt-8 grid gap-4 sm:grid-cols-2">
               {tv.tone.map(([a, b]) => (
-                <div key={a} className="lift rounded-xl border border-line bg-white p-5">
+                <div key={a} className="lift rounded-xl border border-line bg-surface p-5">
                   <dt className="font-display text-xl font-semibold text-science">{a}</dt>
                   <dd className="mt-1 text-slate">{b}</dd>
                 </div>

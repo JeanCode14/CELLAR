@@ -167,7 +167,7 @@ function Cellar() {
         <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-[2.4rem]">{c.featuresTitle}</h2>
         <div data-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => (
-            <div key={f.title} className="lift group rounded-2xl border border-line bg-white p-7">
+            <div key={f.title} className="lift group rounded-2xl border border-line bg-surface p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-science/10 text-science transition-transform duration-500 group-hover:rotate-12">
                 <f.icon className="h-5 w-5" strokeWidth={1.9} />
               </span>
@@ -177,7 +177,7 @@ function Cellar() {
           ))}
         </div>
 
-        <div data-reveal className="mt-16 overflow-hidden rounded-2xl border border-line bg-white">
+        <div data-reveal className="mt-16 overflow-hidden rounded-2xl border border-line bg-surface">
           <table className="w-full text-left">
             <caption className="sr-only">{c.compareCaption}</caption>
             <thead className="bg-mist text-sm">
@@ -240,8 +240,8 @@ function Cellar() {
                 className={cn(
                   "absolute -left-[2.6rem] top-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2",
                   s.state === "done" && "border-teal bg-teal text-white",
-                  s.state === "current" && "border-alert bg-white shadow-[0_0_0_6px_rgba(224,138,46,.15)]",
-                  s.state === "next" && "border-line bg-white",
+                  s.state === "current" && "border-alert bg-surface shadow-[0_0_0_6px_rgba(224,138,46,.15)]",
+                  s.state === "next" && "border-line bg-surface",
                 )}
               >
                 {s.state === "done" && <Check className="h-3 w-3" strokeWidth={3} />}

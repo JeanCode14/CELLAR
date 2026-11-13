@@ -24,6 +24,8 @@ const de: Messages = {
     mainNav: "Hauptnavigation",
     mobileNav: "Mobile Navigation",
     language: "Sprache der Website",
+    themeDark: "Dunklen Modus aktivieren",
+    themeLight: "Hellen Modus aktivieren",
   },
   status: {
     test: "In der Testphase",

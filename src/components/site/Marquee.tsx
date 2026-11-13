@@ -6,7 +6,7 @@ import { useT } from "@/i18n";
 export function Marquee() {
   const ITEMS = useT().marquee;
   return (
-    <div className="mask-edges overflow-hidden border-y border-line bg-white py-4" aria-hidden="true">
+    <div className="mask-edges overflow-hidden border-y border-line bg-surface py-4" aria-hidden="true">
       <div className="marquee flex w-max gap-10">
         {[...ITEMS, ...ITEMS].map((t, i) => (
           <span key={i} className="flex items-center gap-10 whitespace-nowrap font-display text-[15px] font-medium text-slate">

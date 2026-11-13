@@ -42,7 +42,7 @@ export function ClipTour() {
               }}
               className={cn(
                 "rounded-md border-l-[3px] py-3.5 pl-5 pr-3 text-left transition-colors",
-                on ? "border-science bg-white" : "border-transparent hover:bg-white/60",
+                on ? "border-science bg-surface" : "border-transparent hover:bg-surface/60",
               )}
             >
               <span className={cn("block font-display text-lg font-semibold", on ? "text-ink" : "text-slate")}>

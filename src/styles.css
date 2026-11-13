@@ -15,6 +15,7 @@
   --color-science-dark: #1f659f;
   --color-teal: #25b7a5;
   --color-mist: #eaf1f7;
+  --color-surface: #ffffff;
   --color-paper: #f7fafc;
   --color-ink: #10243a;
   --color-slate: #4a5d72;
@@ -28,6 +29,28 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --radius-card: 10px;
+}
+
+/* Mode sombre : bleu nuit et gris bleuté (charte CYTOVEX). Activé par la classe .dark sur <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+.dark {
+  --color-paper: #0a1422;
+  --color-mist: #0e1b2e;
+  --color-surface: #13233a;
+  --color-ink: #e8f0f8;
+  --color-slate: #9db1c6;
+  --color-line: #233650;
+  color-scheme: dark;
+}
+.dark .lift:hover {
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
+}
+html.theme-anim,
+html.theme-anim * {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease !important;
 }
 
 @layer base {

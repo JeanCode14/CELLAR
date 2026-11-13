@@ -50,7 +50,7 @@ function Contact() {
           )}
         </div>
 
-        <form data-reveal onSubmit={submit} className="grid gap-5 rounded-2xl border border-line bg-white p-7 shadow-[0_30px_60px_-35px_rgba(16,36,58,.35)] md:grid-cols-2 md:p-9">
+        <form data-reveal onSubmit={submit} className="grid gap-5 rounded-2xl border border-line bg-surface p-7 shadow-[0_30px_60px_-35px_rgba(16,36,58,.35)] md:grid-cols-2 md:p-9">
           <label className="grid gap-2 text-sm font-medium">
             {t.name}
             <input name="name" required autoComplete="name" className="field" />
