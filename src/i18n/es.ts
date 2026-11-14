@@ -8,6 +8,8 @@ const es: Messages = {
     "/vision": "Nuestra visión — CYTOVEX",
     "/support": "Soporte — CYTOVEX",
     "/contact": "Contacto — CYTOVEX",
+    "/mentions-legales": "Aviso legal — CYTOVEX",
+    "/confidentialite": "Política de privacidad — CYTOVEX",
     description: "CYTOVEX, editor de soluciones de software para las ciencias de la vida. Primer producto: CELLAR.",
   },
   nav: {
@@ -73,6 +75,8 @@ const es: Messages = {
     help: "Ayuda",
     faq: "Preguntas frecuentes",
     rights: "Todos los derechos reservados.",
+    legal: "Aviso legal",
+    privacy: "Privacidad",
   },
   notFound: {
     kicker: "Error 404",
@@ -328,6 +332,78 @@ const es: Messages = {
     mailName: "Nombre",
     mailOrg: "Laboratorio / organismo",
     mailEmail: "Correo",
+    notice: "La información que introduzca solo se utiliza para responder a su solicitud. Este sitio no la guarda ni la comparte con terceros.",
+    noticeLink: "Política de privacidad",
+  },
+  legal: {
+    "kicker": "Información legal",
+    "title": "Aviso legal",
+    "lead": "Información sobre el editor y el alojamiento de este sitio, conforme a la legislación francesa (LCEN).",
+    "editorTitle": "Editor del sitio",
+    "name": "Denominación",
+    "form": "Forma jurídica",
+    "capital": "Capital social",
+    "address": "Domicilio social",
+    "registration": "Inscripción registral",
+    "vat": "NIF-IVA intracomunitario",
+    "email": "Contacto",
+    "pending": "Inscripción en curso",
+    "toCome": "Próximamente",
+    "directorTitle": "Director de la publicación",
+    "hostTitle": "Alojamiento",
+    "phone": "Teléfono",
+    "ipTitle": "Propiedad intelectual",
+    "ipText": "Las marcas CYTOVEX y CELLAR, sus logotipos y los textos, imágenes, vídeos y animaciones de este sitio pertenecen a su titular. Queda prohibida cualquier reproducción, total o parcial, sin autorización previa por escrito.",
+    "updated": "Última actualización:"
+  },
+  privacy: {
+    "kicker": "Datos personales",
+    "title": "Política de privacidad",
+    "lead": "Este sitio recoge el mínimo de datos posible. Aquí se explica qué se trata, por qué y cómo ejercer sus derechos.",
+    "sections": [
+      {
+        "title": "Responsable del tratamiento",
+        "paras": [
+          "CYTOVEX, editor de este sitio. Los datos de contacto completos figuran en el aviso legal."
+        ]
+      },
+      {
+        "title": "Formulario de contacto",
+        "paras": [
+          "El formulario prepara un correo en su propio programa de correo: usted decide si lo envía. Este sitio no registra ni conserva la información introducida (nombre, laboratorio, correo electrónico, asunto, mensaje).",
+          "Los correos recibidos solo se utilizan para responder a su solicitud, sobre la base de nuestro interés legítimo en atender las consultas que recibimos. Se conservan como máximo tres años tras el último intercambio y después se eliminan."
+        ]
+      },
+      {
+        "title": "Preferencias de visualización",
+        "paras": [
+          "Su navegador recuerda el idioma y el modo claro u oscuro que elija, para recuperarlos en su próxima visita. Esta información permanece en su dispositivo, nunca se nos transmite y no se utiliza para ningún seguimiento. Puede borrarla en cualquier momento desde la configuración de su navegador."
+        ]
+      },
+      {
+        "title": "Medición de audiencia y cookies",
+        "paras": [
+          "Este sitio no utiliza cookies publicitarias, ni herramientas de estadísticas, ni botones de redes sociales. Las fuentes tipográficas se alojan con el sitio: durante su visita no se envía ningún dato a servicios de terceros."
+        ]
+      },
+      {
+        "title": "Alojamiento",
+        "paras": [
+          "El sitio está alojado en GitHub Pages (GitHub, Inc.). Como cualquier proveedor de alojamiento, GitHub puede registrar datos técnicos de conexión, como la dirección IP, para garantizar la seguridad del servicio. Estos datos se tratan conforme a la declaración de privacidad de GitHub."
+        ]
+      },
+      {
+        "title": "Sus derechos",
+        "paras": [
+          "Tiene derecho de acceso, rectificación, supresión, limitación y oposición respecto a sus datos. Para ejercerlos, escríbanos a la dirección indicada más abajo.",
+          "Si considera que no se respetan sus derechos, puede presentar una reclamación ante la CNIL, la autoridad francesa de protección de datos (cnil.fr)."
+        ]
+      }
+    ],
+    "contactTitle": "Escríbanos",
+    "emailPending": "La dirección de correo de contacto se publicará aquí próximamente.",
+    "githubPolicy": "Declaración de privacidad de GitHub",
+    "updated": "Última actualización:"
   },
 };
 

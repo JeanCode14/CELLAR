@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CellarRouteImport } from './routes/cellar'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as VisionRouteImport } from './routes/vision'
@@ -26,9 +28,19 @@ const CellarRoute = CellarRouteImport.update({
   path: '/cellar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -50,7 +62,9 @@ const VisionRoute = VisionRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cellar': typeof CellarRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/vision': typeof VisionRoute
@@ -58,7 +72,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cellar': typeof CellarRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/vision': typeof VisionRoute
@@ -67,7 +83,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cellar': typeof CellarRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/vision': typeof VisionRoute
@@ -75,14 +93,31 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/cellar' | '/contact' | '/solutions' | '/support' | '/vision'
+    | '/'
+    | '/cellar'
+    | '/confidentialite'
+    | '/contact'
+    | '/mentions-legales'
+    | '/solutions'
+    | '/support'
+    | '/vision'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cellar' | '/contact' | '/solutions' | '/support' | '/vision'
+  to:
+    | '/'
+    | '/cellar'
+    | '/confidentialite'
+    | '/contact'
+    | '/mentions-legales'
+    | '/solutions'
+    | '/support'
+    | '/vision'
   id:
     | '__root__'
     | '/'
     | '/cellar'
+    | '/confidentialite'
     | '/contact'
+    | '/mentions-legales'
     | '/solutions'
     | '/support'
     | '/vision'
@@ -91,7 +126,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CellarRoute: typeof CellarRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
   SolutionsRoute: typeof SolutionsRoute
   SupportRoute: typeof SupportRoute
   VisionRoute: typeof VisionRoute
@@ -113,11 +150,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CellarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions': {
@@ -147,7 +198,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CellarRoute: CellarRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
   SolutionsRoute: SolutionsRoute,
   SupportRoute: SupportRoute,
   VisionRoute: VisionRoute,

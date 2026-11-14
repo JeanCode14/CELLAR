@@ -8,6 +8,8 @@ const de: Messages = {
     "/vision": "Unsere Vision — CYTOVEX",
     "/support": "Support — CYTOVEX",
     "/contact": "Kontakt — CYTOVEX",
+    "/mentions-legales": "Impressum — CYTOVEX",
+    "/confidentialite": "Datenschutzerklärung — CYTOVEX",
     description: "CYTOVEX, Softwarehersteller für die Life Sciences. Erstes Produkt: CELLAR.",
   },
   nav: {
@@ -73,6 +75,8 @@ const de: Messages = {
     help: "Hilfe",
     faq: "Häufige Fragen",
     rights: "Alle Rechte vorbehalten.",
+    legal: "Impressum",
+    privacy: "Datenschutz",
   },
   notFound: {
     kicker: "Fehler 404",
@@ -328,6 +332,78 @@ const de: Messages = {
     mailName: "Name",
     mailOrg: "Labor / Einrichtung",
     mailEmail: "E-Mail",
+    notice: "Ihre Angaben werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet. Sie werden von dieser Website weder gespeichert noch an Dritte weitergegeben.",
+    noticeLink: "Datenschutzerklärung",
+  },
+  legal: {
+    "kicker": "Rechtliche Hinweise",
+    "title": "Impressum",
+    "lead": "Angaben zum Herausgeber und zum Hosting-Anbieter dieser Website gemäß französischem Recht (LCEN).",
+    "editorTitle": "Herausgeber",
+    "name": "Firma",
+    "form": "Rechtsform",
+    "capital": "Stammkapital",
+    "address": "Sitz",
+    "registration": "Registereintrag",
+    "vat": "USt-IdNr.",
+    "email": "Kontakt",
+    "pending": "Eintragung in Bearbeitung",
+    "toCome": "Folgt in Kürze",
+    "directorTitle": "Verantwortlich für den Inhalt",
+    "hostTitle": "Hosting",
+    "phone": "Telefon",
+    "ipTitle": "Geistiges Eigentum",
+    "ipText": "Die Marken CYTOVEX und CELLAR, ihre Logos sowie die Texte, Bilder, Videos und Animationen dieser Website sind Eigentum ihres Inhabers. Jede vollständige oder teilweise Vervielfältigung ohne vorherige schriftliche Genehmigung ist untersagt.",
+    "updated": "Letzte Aktualisierung:"
+  },
+  privacy: {
+    "kicker": "Personenbezogene Daten",
+    "title": "Datenschutzerklärung",
+    "lead": "Diese Website erhebt so wenige Daten wie möglich. Hier erfahren Sie, was verarbeitet wird, warum, und wie Sie Ihre Rechte ausüben.",
+    "sections": [
+      {
+        "title": "Verantwortlicher",
+        "paras": [
+          "CYTOVEX, Herausgeber dieser Website. Die vollständigen Kontaktdaten finden Sie im Impressum."
+        ]
+      },
+      {
+        "title": "Kontaktformular",
+        "paras": [
+          "Das Formular bereitet eine E-Mail in Ihrem eigenen E-Mail-Programm vor: Sie entscheiden, ob Sie sie senden. Diese Website speichert die eingegebenen Angaben (Name, Labor, E-Mail-Adresse, Betreff, Nachricht) weder noch bewahrt sie sie auf.",
+          "Eingehende E-Mails werden ausschließlich zur Beantwortung Ihrer Anfrage genutzt, auf Grundlage unseres berechtigten Interesses an der Bearbeitung von Anfragen. Sie werden höchstens drei Jahre nach dem letzten Austausch aufbewahrt und dann gelöscht."
+        ]
+      },
+      {
+        "title": "Anzeigeeinstellungen",
+        "paras": [
+          "Ihr Browser speichert die gewählte Sprache und den hellen oder dunklen Modus, damit sie beim nächsten Besuch erhalten bleiben. Diese Angaben bleiben auf Ihrem Gerät, werden nie an uns übermittelt und dienen keinem Tracking. Sie können sie jederzeit in den Einstellungen Ihres Browsers löschen."
+        ]
+      },
+      {
+        "title": "Reichweitenmessung und Cookies",
+        "paras": [
+          "Diese Website verwendet keine Werbe-Cookies, keine Analysewerkzeuge und keine Social-Media-Schaltflächen. Die Schriftarten werden mit der Website ausgeliefert: Bei Ihrem Besuch werden keine Daten an Drittanbieter gesendet."
+        ]
+      },
+      {
+        "title": "Hosting",
+        "paras": [
+          "Die Website wird von GitHub Pages (GitHub, Inc.) gehostet. Wie jeder Hosting-Anbieter kann GitHub technische Verbindungsdaten wie die IP-Adresse speichern, um die Sicherheit des Dienstes zu gewährleisten. Diese Daten werden gemäß der Datenschutzerklärung von GitHub verarbeitet."
+        ]
+      },
+      {
+        "title": "Ihre Rechte",
+        "paras": [
+          "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch. Um diese Rechte auszuüben, schreiben Sie uns an die unten angegebene Adresse.",
+          "Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt werden, können Sie Beschwerde bei der französischen Datenschutzbehörde CNIL (cnil.fr) einlegen."
+        ]
+      }
+    ],
+    "contactTitle": "Schreiben Sie uns",
+    "emailPending": "Die Kontakt-E-Mail-Adresse wird hier in Kürze veröffentlicht.",
+    "githubPolicy": "Datenschutzerklärung von GitHub",
+    "updated": "Letzte Aktualisierung:"
   },
 };
 

@@ -8,6 +8,8 @@ const en: Messages = {
     "/vision": "Our vision — CYTOVEX",
     "/support": "Support — CYTOVEX",
     "/contact": "Contact — CYTOVEX",
+    "/mentions-legales": "Legal notice — CYTOVEX",
+    "/confidentialite": "Privacy policy — CYTOVEX",
     description: "CYTOVEX, software publisher for the life sciences. First product: CELLAR.",
   },
   nav: {
@@ -73,6 +75,8 @@ const en: Messages = {
     help: "Help",
     faq: "FAQ",
     rights: "All rights reserved.",
+    legal: "Legal notice",
+    privacy: "Privacy",
   },
   notFound: {
     kicker: "Error 404",
@@ -328,6 +332,78 @@ const en: Messages = {
     mailName: "Name",
     mailOrg: "Laboratory / organisation",
     mailEmail: "Email",
+    notice: "The information you enter is used only to answer your request. It is neither stored by this website nor shared with third parties.",
+    noticeLink: "Privacy policy",
+  },
+  legal: {
+    "kicker": "Legal information",
+    "title": "Legal notice",
+    "lead": "Information about the publisher and host of this website, as required by French law (LCEN).",
+    "editorTitle": "Publisher",
+    "name": "Company name",
+    "form": "Legal form",
+    "capital": "Share capital",
+    "address": "Registered office",
+    "registration": "Registration",
+    "vat": "EU VAT number",
+    "email": "Contact",
+    "pending": "Registration in progress",
+    "toCome": "Coming soon",
+    "directorTitle": "Publication director",
+    "hostTitle": "Hosting",
+    "phone": "Phone",
+    "ipTitle": "Intellectual property",
+    "ipText": "The CYTOVEX and CELLAR trademarks, their logos, and the texts, images, videos and animations on this website belong to their owner. Any full or partial reproduction without prior written permission is prohibited.",
+    "updated": "Last updated:"
+  },
+  privacy: {
+    "kicker": "Personal data",
+    "title": "Privacy policy",
+    "lead": "This website collects as little data as possible. Here is what is processed, why, and how to exercise your rights.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "paras": [
+          "CYTOVEX, publisher of this website. Full contact details are given in the legal notice."
+        ]
+      },
+      {
+        "title": "Contact form",
+        "paras": [
+          "The form prepares an email in your own email app: you decide whether to send it. This website does not record or keep the information you enter (name, laboratory, email address, subject, message).",
+          "Emails we receive are used only to answer your request, based on our legitimate interest in handling enquiries sent to us. They are kept for no more than three years after the last exchange, then deleted."
+        ]
+      },
+      {
+        "title": "Display preferences",
+        "paras": [
+          "Your browser remembers the language and the light or dark mode you choose, so they are restored on your next visit. This information stays on your device, is never sent to us and is not used for any tracking. You can delete it at any time in your browser settings."
+        ]
+      },
+      {
+        "title": "Analytics and cookies",
+        "paras": [
+          "This website uses no advertising cookies, no analytics tools and no social media buttons. Fonts are hosted with the website: no data is sent to any third-party service when you visit."
+        ]
+      },
+      {
+        "title": "Hosting",
+        "paras": [
+          "The website is hosted by GitHub Pages (GitHub, Inc.). Like any host, GitHub may record technical connection data, such as IP addresses, to keep the service secure. This data is processed under GitHub's privacy statement."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "paras": [
+          "You have the right to access, rectify, erase, restrict and object to the processing of your data. To exercise these rights, write to us at the address below.",
+          "If you believe your rights are not being respected, you can lodge a complaint with the CNIL, the French data protection authority (cnil.fr)."
+        ]
+      }
+    ],
+    "contactTitle": "Write to us",
+    "emailPending": "The contact email address will be published here soon.",
+    "githubPolicy": "GitHub privacy statement",
+    "updated": "Last updated:"
   },
 };
 

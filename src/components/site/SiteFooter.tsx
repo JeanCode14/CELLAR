@@ -51,7 +51,17 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="wrap py-5 text-xs text-white/50">© {new Date().getFullYear()} CYTOVEX. {t.footer.rights}</p>
+        <div className="wrap flex flex-col gap-3 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} CYTOVEX. {t.footer.rights}</p>
+          <nav className="flex gap-5" aria-label={t.footer.legal}>
+            <Link to="/mentions-legales" className="hover:text-white">
+              {t.footer.legal}
+            </Link>
+            <Link to="/confidentialite" className="hover:text-white">
+              {t.footer.privacy}
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

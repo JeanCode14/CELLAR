@@ -42,6 +42,10 @@
   --color-line: #233650;
   color-scheme: dark;
 }
+.dark select option {
+  background: #13233a;
+  color: #e8f0f8;
+}
 .dark .lift:hover {
   box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
 }
@@ -97,7 +101,7 @@ html.theme-anim * {
   @apply text-lg leading-relaxed text-slate;
 }
 @utility field {
-  @apply w-full rounded-md border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-slate/60 focus:border-science focus:outline-none focus:ring-2 focus:ring-science/20;
+  @apply w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink placeholder:text-slate/60 focus:border-science focus:outline-none focus:ring-2 focus:ring-science/20;
 }
 
 /* Hero : le réseau des logiciels se trace au chargement (seul mouvement non déclenché du site) */

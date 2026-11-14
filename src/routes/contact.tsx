@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CONTACT_EMAIL } from "@/data/site";
 import { useT } from "@/i18n";
@@ -75,6 +75,12 @@ function Contact() {
             {t.message}
             <textarea name="message" required rows={6} className="field resize-y" />
           </label>
+          <p className="text-xs leading-relaxed text-slate md:col-span-2">
+            {t.notice}{" "}
+            <Link to="/confidentialite" className="font-semibold text-science hover:underline">
+              {t.noticeLink}
+            </Link>
+          </p>
           <div className="flex flex-wrap items-center gap-4 md:col-span-2">
             <button type="submit" className="btn-primary glow-btn rounded-full">
               {t.send}
